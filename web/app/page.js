@@ -160,16 +160,18 @@ export default function Home() {
   // ─── Zoom handlers ────────────────────────────────────────────
   const handleWheel = useCallback((e) => {
     e.preventDefault();
+    if (!matchData) return;
     setZoom((prev) => {
       const delta = e.deltaY > 0 ? -0.3 : 0.3;
       const next = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, prev + delta));
       if (next <= 1) setPanOffset({ x: 0, y: 0 });
       return next;
     });
-  }, []);
+  }, [matchData]);
 
   const handleMouseDown = useCallback((e) => {
     if (zoom <= 1) return;
+    e.preventDefault();
     isPanningRef.current = true;
     panStartRef.current = { x: e.clientX, y: e.clientY };
     panOffsetStartRef.current = { ...panOffset };
@@ -267,11 +269,11 @@ export default function Home() {
 
   // Attach wheel listener (non-passive)
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    canvas.addEventListener("wheel", handleWheel, { passive: false });
-    return () => canvas.removeEventListener("wheel", handleWheel);
-  }, [handleWheel]);
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+    viewport.addEventListener("wheel", handleWheel, { passive: false });
+    return () => viewport.removeEventListener("wheel", handleWheel);
+  }, [handleWheel, matchData, mapReady]);
 
   // ─── Load initial data ─────────────────────────────────────────
   useEffect(() => {

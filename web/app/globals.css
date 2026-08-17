@@ -407,6 +407,8 @@ html, body {
 .map-canvas-wrapper {
   position: relative;
   transition: transform 0.05s linear;
+  user-select: none;
+  touch-action: none;
 }
 
 .map-canvas-wrapper canvas {
