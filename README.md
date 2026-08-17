@@ -2,6 +2,8 @@
 
 This project is a level-designer-friendly web application for visualizing player journeys, combat hotspots, and heatmaps from LILA BLACK production gameplay data.
 
+🌍 **Live Demo:** [LILA BLACK — Player Journey Visualizer](https://playerjourneyvisualizationtool.netlify.app/)
+
 ## 🗂️ Project Structure
 
 ```
