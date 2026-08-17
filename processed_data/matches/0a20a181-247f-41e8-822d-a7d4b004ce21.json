@@ -1,0 +1,1 @@
+{"match_id": "0a20a181-247f-41e8-822d-a7d4b004ce21", "map_id": "Lockdown", "date": "February_13", "players": {"b3340cc5-c9fa-4108-b56d-0728bc978a22": {"is_human": true, "events": [{"x": 273.3, "y": 317.3, "t": 1770978381.0, "e": "Position"}, {"x": 271.0, "y": 319.1, "t": 1770978416.0, "e": "Position"}, {"x": 271.0, "y": 319.1, "t": 1770978421.0, "e": "BotKilled"}]}}}
